@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import EmployeeService from "../services/EmployeeService";
 
 function ListEmployeeComponent(props) {
   const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    EmployeeService.getEmployees().then(({ data }) => setEmployees(data));
+  });
 
   return (
     <div>
@@ -16,13 +21,13 @@ function ListEmployeeComponent(props) {
           </tr>
         </thead>
         <tbody>
-          {employees.map((employee) => {
+          {employees.map((employee) => (
             <tr key={employee.id}>
               <td>{employee.firstName}</td>
               <td>{employee.lastName}</td>
               <td>{employee.emailId}</td>
-            </tr>;
-          })}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
