@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import EmployeeService from "../services/EmployeeService";
 
 function ListEmployeeComponent(props) {
@@ -8,9 +9,17 @@ function ListEmployeeComponent(props) {
     EmployeeService.getEmployees().then(({ data }) => setEmployees(data));
   });
 
+  const navigate = useNavigate();
+
   return (
     <div>
       <h2 className="text-center">Employee List</h2>
+      <button
+        className="btn btn-primary"
+        onClick={() => navigate("/add-employees")}
+      >
+        添加员工
+      </button>
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
