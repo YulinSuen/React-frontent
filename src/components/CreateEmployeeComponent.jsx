@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import EmployeeService from "../services/EmployeeService";
 
 function CreateEmployeeComponent(props) {
   const [firstName, setFirstName] = useState("");
@@ -10,10 +11,13 @@ function CreateEmployeeComponent(props) {
   const saveEmployee = (e) => {
     e.preventDefault();
     const employee = { firstName, lastName, emailId };
-    console.log("employee => " + JSON.stringify(employee));
+
+    EmployeeService.createEmployee(employee).then(() => {
+      navigate("/employees");
+    });
   };
 
-  const cancel = (e) => {
+  const cancel = () => {
     navigate("/employees");
   };
 
@@ -24,7 +28,7 @@ function CreateEmployeeComponent(props) {
           <div className="card col-md-6 offset-md-3 offset-md-3">
             <h3 className="textcenter">添加员工</h3>
             <div className="card-body">
-              <form>
+              <form className="form">
                 <div className="form-group">
                   <label>名</label>
                   <input
