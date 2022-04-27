@@ -16,10 +16,14 @@ function UpdateEmployeeComponent(props) {
       setLastName(lastName);
       setEmailId(emailId);
     });
-  });
+  }, [id]);
 
   const updateEmployee = (e) => {
     e.preventDefault();
+    const employee = { firstName, lastName, emailId };
+    EmployeeService.updateEmployee(employee, id).then(() => {
+      navigate("/employees");
+    });
   };
 
   const cancel = () => {
