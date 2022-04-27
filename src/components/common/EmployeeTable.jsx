@@ -1,4 +1,5 @@
 import React from "react";
+import EmployeeService from "../../services/EmployeeService";
 
 function EmployeeTable(props) {
   const { employees, navigate } = props;
@@ -25,6 +26,13 @@ function EmployeeTable(props) {
                 onClick={() => navigate(`/update-employee/${employee.id}`)}
               >
                 更新
+              </button>
+              <button
+                className="btn btn-danger"
+                style={{ marginLeft: "10px" }}
+                onClick={() => EmployeeService.deleteEmployee(employee.id)}
+              >
+                删除
               </button>
             </td>
           </tr>
