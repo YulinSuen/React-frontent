@@ -5,6 +5,7 @@ import HeaderComponent from "./components/HeaderComponent";
 import ListEmployeeComponent from "./components/ListEmployeeComponent";
 import CreateEmployeeComponent from "./components/CreateEmployeeComponent";
 import "./App.css";
+import UpdateEmployeeComponent from "./components/UpdateEmployeeComponent";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
             <Route
               path="/add-employees"
               element={<CreateEmployeeComponent />}
+            />
+            <Route
+              path="/update-employee/:id"
+              element={<UpdateEmployeeComponent />}
             />
           </Routes>
         </div>

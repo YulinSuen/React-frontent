@@ -35,6 +35,14 @@ function ListEmployeeComponent(props) {
               <td>{employee.firstName}</td>
               <td>{employee.lastName}</td>
               <td>{employee.emailId}</td>
+              <td>
+                <button
+                  className="btn btn-info"
+                  onClick={() => navigate(`/update-employee/${employee.id}`)}
+                >
+                  更新
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
