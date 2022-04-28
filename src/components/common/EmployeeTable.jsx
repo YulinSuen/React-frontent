@@ -34,6 +34,13 @@ function EmployeeTable(props) {
               >
                 删除
               </button>
+              <button
+                className="btn btn-info"
+                style={{ marginLeft: "10px" }}
+                onClick={() => navigate(`/view-employee/${employee.id}`)}
+              >
+                员工信息
+              </button>
             </td>
           </tr>
         ))}

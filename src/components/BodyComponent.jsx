@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import ListEmployeeComponent from "./ListEmployeeComponent";
 import CreateEmployeeComponent from "./CreateEmployeeComponent";
 import UpdateEmployeeComponent from "./UpdateEmployeeComponent";
+import ViewEmployComponent from "./ViewEmployComponent";
 
 function BodyComponent(props) {
   return (
@@ -15,6 +16,7 @@ function BodyComponent(props) {
           path="/update-employee/:id"
           element={<UpdateEmployeeComponent />}
         />
+        <Route path="/view-employee/:id" element={<ViewEmployComponent />} />
       </Routes>
     </div>
   );
